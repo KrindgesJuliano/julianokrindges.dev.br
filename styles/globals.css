@@ -1,16 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --blue-tin: "rgba(100, 255, 218, 1)";
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: "Inter", "Fira Code", monospace, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, sans-serif;
+  background-color: #0f123d;
+  color: aliceblue;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+  /* color: inherit; */
+  /* text-decoration: none; */
+}
+
+a:link {
+  color: var(--blue-tin);
+}
+
+p {
+  margin-bottom: 1.5rem;
+  line-height: 1.8rem;
+}
+
+li::marker {
+  content: url(../public/Polygon19.svg);
+}
+
+li {
+  padding-left: 1rem;
 }
 
 * {
   box-sizing: border-box;
+}
+
+.mesh-gradient {
+  background-image: #101952;
+  background-image: radial-gradient(at 47% 15%, hsla(232, 67%, 19%, 1) 0, transparent 49%),
+    radial-gradient(at 64% 79%, hsla(223, 63%, 20%, 1) 0, transparent 59%),
+    radial-gradient(at 71% 6%, hsla(284, 79%, 56%, 1) 0, transparent 31%),
+    radial-gradient(at 99% 1%, hsla(189, 100%, 56%, 1) 0, transparent 36%),
+    radial-gradient(at 53% 46%, hsla(223, 63%, 20%, 1) 0, transparent 33%),
+    radial-gradient(at 88% 41%, hsla(280, 62%, 54%, 1) 0, transparent 35%);
+}
+
+/* Scrollbar custom properties */
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #666;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  width: 8px;
+  background: #a09fa0;
+}
+
+.link-decoration {
+  color: var(--blue-tin);
 }
