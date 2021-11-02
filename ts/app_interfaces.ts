@@ -18,7 +18,7 @@ export interface postItem {
   id: number | null;
   title: string | null;
   type: string | null;
-  value: string | undefined;
+  value: string;
 }
 
 export interface postTag {

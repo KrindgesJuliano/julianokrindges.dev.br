@@ -1,5 +1,7 @@
 import React, { ReactElement } from "react";
 import { GitHub, ExternalLink } from "react-feather";
+import ReactMarkdown from "react-markdown";
+
 import Separator from "../Separator";
 import { postObj } from "../../ts/app_interfaces";
 
@@ -11,7 +13,7 @@ interface postsIndex {
   items: Array<postObj>;
 }
 
-export default function index(props: props): ReactElement {
+export default function Projects(props: props): ReactElement {
   const content = props.projects.items;
 
   return (
@@ -29,9 +31,7 @@ export default function index(props: props): ReactElement {
             <div className={"text-right"}>
               <h2 className={"font-mono text-2xl font-bold"}>{item.title}</h2>
               <p className={"my-4 text-lg"}>
-                Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit
-                officia consequat duis enim <a href="#">velit mollit</a>. Exercitation veniam
-                consequat sunt nostrud amet.
+                <ReactMarkdown>{item.content[3375452205117].value}</ReactMarkdown>
               </p>
               <div className={"text-sm font-mono text-gray gap-4 flex justify-end"}>
                 {item.content[7288023256715].value.map((tag: string) => (
