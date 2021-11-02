@@ -1,7 +1,15 @@
-import type { NextPage } from "next";
+import About from "../components/AboutSection";
+import Projects from "../components/ProjectSection";
 import Layout from "../components/Layout";
 
-const Home: NextPage = () => {
+import { postObj } from "../ts/app_interfaces";
+import { API_URL } from "../config";
+
+interface postArray {
+  items: Array<postObj>;
+}
+
+const Home = (postsIndex: postArray) => {
   return (
     <Layout title="Home">
       <div className={"h-screen mesh-gradient"}>
@@ -22,8 +30,19 @@ const Home: NextPage = () => {
           </div>
         </section>
       </div>
+      <About />
+      <Projects projects={postsIndex} />
     </Layout>
   );
+};
+
+export const getStaticProps = async () => {
+  const res = await fetch(`${API_URL}/collection/y8ui3sf8t6oa?content`);
+  const postsIndex: postArray = await res.json();
+
+  return {
+    props: postsIndex,
+  };
 };
 
 export default Home;
