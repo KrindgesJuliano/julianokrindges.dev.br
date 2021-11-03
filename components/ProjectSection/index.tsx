@@ -1,6 +1,7 @@
 import React, { ReactElement } from "react";
 import { GitHub, ExternalLink } from "react-feather";
 import ReactMarkdown from "react-markdown";
+import Image from "next/image";
 
 import Separator from "../Separator";
 import { postObj } from "../../ts/app_interfaces";
@@ -26,13 +27,25 @@ export default function Projects(props: props): ReactElement {
         <React.Fragment key={item.key}>
           <div className={"grid grid-cols-2 gap-4 mb-8 mt-20"}>
             <div className={"w-full h-auto"}>
-              <div className={"h-full w-full bg-light-gray max-h-96"}></div>
+              <div className={"h-full w-full bg-light-gray max-h-96 rounded overflow-hidden"}>
+                {item.content[517933991150].value && item.content[517933991150].value.length > 0 ? (
+                  <Image
+                    alt="Imagem de capa do projeto"
+                    src={`https://berowra.krindges.deta.app/file/${item.content[517933991150].value[0]}`}
+                    layout="responsive"
+                    width={400}
+                    height={300}
+                  />
+                ) : (
+                  ""
+                )}
+              </div>
             </div>
             <div className={"text-right"}>
               <h2 className={"font-mono text-2xl font-bold"}>{item.title}</h2>
-              <p className={"my-4 text-lg"}>
+              <div className={"my-4 text-lg"}>
                 <ReactMarkdown>{item.content[3375452205117].value}</ReactMarkdown>
-              </p>
+              </div>
               <div className={"text-sm font-mono text-gray gap-4 flex justify-end"}>
                 {item.content[7288023256715].value.map((tag: string) => (
                   <span key={tag}>{tag}</span>
