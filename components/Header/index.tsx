@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import Image from "next/image";
+import Image from "../Image";
 
 import Logo from "../../public/j-logo.svg";
 
