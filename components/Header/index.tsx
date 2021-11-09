@@ -13,7 +13,7 @@ function Header({ title = "Juliano", imgSrc = Logo }: Props): ReactElement {
     <header className={"absolute w-full"}>
       <div className={"container mx-auto h-16 flex items-center justify-between"}>
         <div className={"flex items-center gap-4"}>
-          <Image src={imgSrc} alt="Logo" />
+          <Image src={imgSrc} alt="Logo" unoptimized />
           <h2>{title}</h2>
         </div>
         <nav className={"flex gap-5"}>
