@@ -19,7 +19,7 @@ const Layout = ({ title, keywords, description, children }: Props) => {
         shouldExcludeTitleSuffix
       ></SEO>
       <Header />
-      <div className={"mx-auto"}>{children}</div>
+      <main className={"mx-auto"}>{children}</main>
     </div>
   );
 };

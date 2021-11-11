@@ -28,9 +28,7 @@ module.exports = {
     },
   },
   variants: {
-    extend: {
-      flexDirection: ["even", "odd"],
-    },
+    extend: {},
   },
   plugins: [],
 };

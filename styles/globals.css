@@ -70,3 +70,7 @@ li {
 .link-decoration {
   color: var(--blue-tin);
 }
+
+.even-blog-card:nth-child(even) {
+  flex-direction: row-reverse;
+}
