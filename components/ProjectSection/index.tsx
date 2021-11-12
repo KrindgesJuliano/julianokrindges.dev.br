@@ -24,12 +24,12 @@ export default function Projects(props: props): ReactElement {
         <span className={"text-tint"}>\</span> Alguns dos meus trabalhos
       </h2>
       <div className="grid">
-        {/* TODO: criar criar condicional de renderização para map */}
         {getContent.map((item: postObj) => (
           <React.Fragment key={item.key}>
             <div className={`gap-4 ${styles.project_card}`}>
               <div className={"w-1/2 h-auto mb-10"}>
                 <div className={"h-full w-full bg-light-gray max-h-96 rounded overflow-hidden"}>
+                  {/* TODO: Better responsible behavior in the image */}
                   {item.content[517933991150].value &&
                   item.content[517933991150].value.length > 0 ? (
                     <Image
@@ -52,16 +52,20 @@ export default function Projects(props: props): ReactElement {
                 </div>
                 <div className={`text-sm font-mono text-gray gap-4 ${styles.project_tag}`}>
                   {item.content[7288023256715].value.map((tag: string) => (
-                    <span key={tag}>{tag}</span>
+                    <span key={tag}>#{tag}</span>
                   ))}
                 </div>
                 <div className={`mt-5 gap-7 ${styles.project_tag}`}>
-                  <a className="hover:text-tint" href={item.content[1677912610571].value}>
-                    <GitHub />
-                  </a>
-                  <a className="hover:text-tint" href={item.content[1215597856592].value}>
-                    <ExternalLink />
-                  </a>
+                  {!item.content[1677912610571].value || (
+                    <a className="hover:text-tint" href={item.content[1677912610571].value}>
+                      <GitHub />
+                    </a>
+                  )}
+                  {!item.content[1215597856592].value || (
+                    <a className="hover:text-tint" href={item.content[1215597856592].value}>
+                      <ExternalLink />
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
