@@ -1,7 +1,11 @@
 .project_card {
   display: flex;
-  border-bottom: 1px solid;
+}
+
+.project_card + .project_card {
+  border-top: 1px solid;
   border-color: #64ffda;
+  padding-top: 5rem;
 }
 
 .project_card:nth-child(even) {

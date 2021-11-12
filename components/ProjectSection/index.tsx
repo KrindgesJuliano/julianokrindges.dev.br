@@ -16,17 +16,18 @@ interface postsIndex {
 
 export default function Projects(props: props): ReactElement {
   const content = props.projects.items;
+  const getContent = content.slice(0, 3);
 
   return (
     <section className={"container mx-auto h-auto py-24 px-40"}>
-      <h2 className={"font-mono text-2xl mb-10 font-bold"}>
+      <h2 className={"font-mono text-2xl mb-16 font-bold"}>
         <span className={"text-tint"}>\</span> Alguns dos meus trabalhos
       </h2>
       <div className="grid">
         {/* TODO: criar criar condicional de renderização para map */}
-        {content.map((item: postObj) => (
+        {getContent.map((item: postObj) => (
           <React.Fragment key={item.key}>
-            <div className={`gap-4 mt-20 ${styles.project_card}`}>
+            <div className={`gap-4 ${styles.project_card}`}>
               <div className={"w-1/2 h-auto mb-10"}>
                 <div className={"h-full w-full bg-light-gray max-h-96 rounded overflow-hidden"}>
                   {item.content[517933991150].value &&
