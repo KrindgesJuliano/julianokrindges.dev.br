@@ -11,7 +11,7 @@ interface Props {
 
 const Layout = ({ title, keywords, description, children }: Props) => {
   return (
-    <div className={"relative"}>
+    <React.Fragment>
       <SEO
         title={title}
         description={description}
@@ -19,8 +19,8 @@ const Layout = ({ title, keywords, description, children }: Props) => {
         shouldExcludeTitleSuffix
       ></SEO>
       <Header />
-      <main className={"mx-auto"}>{children}</main>
-    </div>
+      <main className="">{children}</main>
+    </React.Fragment>
   );
 };
 

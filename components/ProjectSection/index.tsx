@@ -52,7 +52,7 @@ export default function Projects(props: props): ReactElement {
                 </div>
                 <div className={`text-sm font-mono text-gray gap-4 ${styles.project_tag}`}>
                   {item.content[7288023256715].value.map((tag: string) => (
-                    <span key={tag}>#{tag}</span>
+                    <span key={tag}>{`#${tag}`}</span>
                   ))}
                 </div>
                 <div className={`mt-5 gap-7 ${styles.project_tag}`}>
