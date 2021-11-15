@@ -1,6 +1,8 @@
 import About from "../components/AboutSection";
 import Projects from "../components/ProjectSection";
 import Layout from "../components/Layout";
+import ContactSection from "components/ContactSection";
+import Button from "../components/Button";
 
 import { postObj } from "../ts/app_interfaces";
 import { API_URL } from "../config";
@@ -26,14 +28,13 @@ const Home = (postsIndex: postArray) => {
             </header>
           </div>
           <div className={"row-start-3 col-start-2"}>
-            <button className={"border-2 w-52 h-12 rounded border-tint"}>
-              <span className={"text-tint font-mono"}>Vamos Conversar</span>
-            </button>
+            <Button />
           </div>
         </section>
       </div>
       <About />
       <Projects projects={postsIndex} />
+      <ContactSection />
     </Layout>
   );
 };
