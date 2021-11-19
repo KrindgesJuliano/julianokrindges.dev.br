@@ -1,12 +1,16 @@
 import React from "react";
+import Link from "next/link";
 
-interface Props {}
+interface Props {
+  children: React.ReactNode;
+  link: string;
+}
 
-const Button = (props: Props) => {
+const Button = ({ children, link }: Props) => {
   return (
-    <button className={"border-2 w-52 h-12 rounded border-tint"}>
-      <span className={"text-tint font-mono"}>Vamos Conversar</span>
-    </button>
+    <Link href={`${link}`} passHref>
+      {children}
+    </Link>
   );
 };
 

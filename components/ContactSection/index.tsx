@@ -15,7 +15,11 @@ const ContactSection = (props: Props) => {
           consequatur recusandae! Fuga distinctio culpa iste, fugiat voluptatem minus, quo facilis
           accusantium odio error doloremque repudiandae obcaecati.
         </p>
-        <Button />
+        <Button link="/contact">
+          <a className={"border-2 w-52 h-12 rounded border-tint"}>
+            <span className={"text-tint font-mono"}>Vamos Conversar?</span>
+          </a>
+        </Button>
       </div>
     </React.Fragment>
   );

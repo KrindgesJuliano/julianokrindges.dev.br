@@ -28,7 +28,11 @@ const Home = (postsIndex: postArray) => {
             </header>
           </div>
           <div className={"row-start-3 col-start-2"}>
-            <Button />
+            <Button link="/">
+              <a className={"border-2 w-52 h-12 rounded border-tint"}>
+                <span className={"text-tint font-mono"}>Home</span>
+              </a>
+            </Button>
           </div>
         </section>
       </div>
