@@ -1,16 +1,24 @@
 import React from "react";
-import Link from "next/link";
+import { useRouter } from "next/router";
 
 interface Props {
-  children: React.ReactNode;
-  link: string;
+  label: string;
+  to: string;
 }
 
-const Button = ({ children, link }: Props) => {
+const Button = ({ label, to }: Props) => {
+  const router = useRouter();
+
+  const handleClick = (e: any) => {
+    e.preventDefault();
+    router.push(to);
+  };
   return (
-    <Link href={`${link}`} passHref>
-      {children}
-    </Link>
+    <a href={to} onClick={handleClick}>
+      <button className="border-2 border-tint rounded w-52 h-12">
+        <span className="p-4 font-mono text-tint">{label}</span>
+      </button>
+    </a>
   );
 };
 
