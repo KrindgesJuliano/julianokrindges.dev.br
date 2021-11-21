@@ -21,7 +21,9 @@ function Header({ title = "Juliano", imgSrc = Logo }: Props): ReactElement {
           <Link href="/">
             <a>Home</a>
           </Link>
-          <a href="#">Sobre</a>
+          <Link href="#about">
+            <a>Sobre</a>
+          </Link>
           <Link href="/contact">
             <a>Contato</a>
           </Link>

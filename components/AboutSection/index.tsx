@@ -4,7 +4,7 @@ interface Props {}
 
 export default function About({}: Props): ReactElement {
   return (
-    <section className={"container mx-auto h-screen py-24 px-40"}>
+    <section className={"container mx-auto h-screen py-24 px-40"} id="about">
       <h2 className={"font-mono text-2xl mb-10 font-bold"}>
         <span className={"text-tint"}>\</span> Sobre
       </h2>

@@ -10,12 +10,14 @@ const ContactSection = (props: Props) => {
         <h2 className="font-mono text-2xl mb-16 font-bold">
           <span className="text-tint">\</span> Entre em Contato
         </h2>
-        <p className="text-center">
+        <p className="text-lg">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut ipsum itaque dignissimos? Aut,
           consequatur recusandae! Fuga distinctio culpa iste, fugiat voluptatem minus, quo facilis
           accusantium odio error doloremque repudiandae obcaecati.
         </p>
-        <Button to="/contact" label="Vamos Conversar" />
+        <div className="flex justify-center">
+          <Button to="/contact" label="Vamos Conversar" />
+        </div>
       </div>
     </React.Fragment>
   );
