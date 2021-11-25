@@ -1,5 +1,7 @@
 import React, { useState, useReducer, useCallback } from "react";
 
+import Toast from "../Toast";
+
 const encode = (data: any) => {
   return Object.keys(data)
     .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
@@ -33,7 +35,9 @@ const ContactForm = () => {
 
   return (
     <div>
-      {success ? <p>enviado com sucesso!</p> : null}
+      <Toast openModal={success}>
+        <p>Enviado com sucesso!</p>
+      </Toast>
       <form
         id="contato"
         onSubmit={handleSubmit}
