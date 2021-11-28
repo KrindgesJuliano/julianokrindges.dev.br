@@ -1,11 +1,11 @@
 import About from "../components/AboutSection";
-import Projects from "../components/ProjectSection";
 import Layout from "../components/Layout";
 import ContactSection from "components/ContactSection";
 import Button from "../components/Button";
 
 import { postObj } from "../ts/app_interfaces";
 import { API_URL } from "../config";
+import MyWork from "components/MyWorkSection";
 
 interface postArray {
   items: Array<postObj>;
@@ -33,7 +33,7 @@ const Home = (postsIndex: postArray) => {
         </section>
       </div>
       <About />
-      <Projects projects={postsIndex} />
+      <MyWork projects={postsIndex} />
       <ContactSection />
     </Layout>
   );
