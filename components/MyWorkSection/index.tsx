@@ -3,6 +3,7 @@ import React, { ReactElement } from "react";
 // import ReactMarkdown from "react-markdown";
 
 import Image from "../Image";
+import styles from "./style.module.css";
 import { postObj } from "../../ts/app_interfaces";
 
 interface props {
@@ -25,7 +26,9 @@ export default function MyWork(props: props): ReactElement {
       <div className="grid grid-cols-2 gap-4">
         {getContent.map((item: postObj) => (
           <React.Fragment key={item.key}>
-            <div className="w-full h-80 bg-light-gray rounded overflow-hidden cursor-pointer">
+            <div
+              className={`w-full h-80 bg-light-gray rounded overflow-hidden cursor-pointer relative ${styles.card}`}
+            >
               {/* TODO: Better responsible behavior in the image */}
               {item.content[517933991150].value && item.content[517933991150].value.length > 0 ? (
                 <Image
@@ -40,6 +43,18 @@ export default function MyWork(props: props): ReactElement {
               ) : (
                 "Imagem não encontrada"
               )}
+
+              <div
+                className={`absolute bottom-0 px-3 pb-2 bg-gradient-to-t from-gray-700 ${styles.info}`}
+              >
+                <h2 className={`text-2xl font-bold`}>{item.title}</h2>
+                <p className="text-base">{item.content[3375452205117].value}</p>
+                {item.content[7288023256715].value.map((tag) => (
+                  <span key={tag} className="text-xs font-mono text-gray">
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
           </React.Fragment>
         ))}
