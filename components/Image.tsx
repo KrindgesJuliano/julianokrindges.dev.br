@@ -10,7 +10,7 @@ const cloudflareImageLoader = ({ src, width, quality }: Loader) => {
   if (!quality) {
     quality = 75;
   }
-  return `${src}`;
+  return `https://imagesnext.pixel13image.workers.dev?=${width}&quality=${quality}&image=${src}`;
 };
 
 export default function Img(props: ImageProps) {
