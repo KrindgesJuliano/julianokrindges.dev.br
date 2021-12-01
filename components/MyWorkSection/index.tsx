@@ -27,7 +27,7 @@ export default function MyWork(props: props): ReactElement {
         {getContent.map((item: postObj) => (
           <React.Fragment key={item.key}>
             <div
-              className={`w-full h-80 bg-light-gray rounded overflow-hidden cursor-pointer relative ${styles.card}`}
+              className={`w-full h-80 bg-light-gray rounded overflow-hidden cursor-pointer relative `}
             >
               {/* TODO: Better responsible behavior in the image */}
               {item.content[517933991150].value && item.content[517933991150].value.length > 0 ? (
@@ -44,16 +44,16 @@ export default function MyWork(props: props): ReactElement {
                 "Imagem não encontrada"
               )}
 
-              <div
-                className={`absolute bottom-0 px-3 pb-2 bg-gradient-to-t from-gray-700 ${styles.info}`}
-              >
-                <h2 className={`text-2xl font-bold`}>{item.title}</h2>
-                <p className="text-base">{item.content[3375452205117].value}</p>
-                {item.content[7288023256715].value.map((tag) => (
-                  <span key={tag} className="text-xs font-mono text-gray">
-                    {tag}
-                  </span>
-                ))}
+              <div className={`absolute bottom-0 px-3 pb-2 ${styles.card}`}>
+                <h2 className={`text-2xl font-bold `}>{item.title}</h2>
+                <div className={`${styles.info}`}>
+                  <p className="text-base">{item.content[3375452205117].value}</p>
+                  {item.content[7288023256715].value.map((tag) => (
+                    <span key={tag} className="text-xs font-mono">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           </React.Fragment>
