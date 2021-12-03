@@ -1,17 +1,26 @@
+import { GraphQLClient } from "graphql-request";
+
 import About from "../components/AboutSection";
 import Layout from "../components/Layout";
 import ContactSection from "components/ContactSection";
 import Button from "../components/Button";
 
-import { postObj } from "../ts/app_interfaces";
-import { API_URL } from "../config";
 import MyWork from "components/MyWorkSection";
 
-interface postArray {
-  items: Array<postObj>;
+interface props {
+  projects: Array<projectItem>;
 }
 
-const Home = (postsIndex: postArray) => {
+interface projectItem {
+  id: string;
+  name: string;
+  description: string;
+  cover: { url: string };
+  tags: [string];
+  content: string;
+}
+
+const Home = (props: props) => {
   return (
     <Layout title="Home">
       <div className={"h-screen mesh-gradient"}>
@@ -33,18 +42,34 @@ const Home = (postsIndex: postArray) => {
         </section>
       </div>
       <About />
-      <MyWork projects={postsIndex} />
+      <MyWork projects={props} />
       <ContactSection />
     </Layout>
   );
 };
 
 export const getStaticProps = async () => {
-  const res = await fetch(`${API_URL}/collection/y8ui3sf8t6oa?content`);
-  const postsIndex: postArray = await res.json();
+  const graphcms = new GraphQLClient(
+    "https://api-us-east-1.graphcms.com/v2/ckwdw0n920kuq01z36qpm2nf2/master"
+  );
 
+  const { projects } = await graphcms.request(
+    `{
+        projects(stage: PUBLISHED) {
+          id
+          content
+          cover {
+            url(transformation: {image: {}})
+          }
+          name
+          tags
+          description
+        }
+      }
+`
+  );
   return {
-    props: postsIndex,
+    props: { projects },
   };
 };
 

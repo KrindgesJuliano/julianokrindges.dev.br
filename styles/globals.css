@@ -69,11 +69,3 @@ li {
   width: 8px;
   background: #a09fa0;
 }
-
-.link-decoration {
-  color: var(--blue-tin);
-}
-
-.even-blog-card:nth-child(even) {
-  flex-direction: row-reverse;
-}
