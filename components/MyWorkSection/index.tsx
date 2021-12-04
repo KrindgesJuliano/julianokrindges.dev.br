@@ -22,7 +22,7 @@ interface projectItem {
 export default function MyWork(props: props): ReactElement {
   const { projects } = props.projects;
   return (
-    <section className={"container mx-auto h-auto py-24 px-40"}>
+    <section className={"container mx-auto h-auto py-24 lg:px-40 px-8"}>
       <h2 className={"font-mono text-2xl mb-16 font-bold"}>
         <span className={"text-tint"}>\</span> Alguns dos meus trabalhos
       </h2>
@@ -35,9 +35,7 @@ export default function MyWork(props: props): ReactElement {
               <Image
                 alt="Imagem de capa do projeto"
                 src={`${item.cover.url}`}
-                layout="responsive"
-                width={400}
-                height={300}
+                layout="fill"
                 className="object-cover"
               />
 
