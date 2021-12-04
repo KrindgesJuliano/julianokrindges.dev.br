@@ -55,7 +55,7 @@ export const getStaticProps = async () => {
 
   const { projects } = await graphcms.request(
     `{
-        projects(stage: PUBLISHED) {
+        projects(stage: PUBLISHED, orderBy: id_DESC) {
           id
           content
           cover {

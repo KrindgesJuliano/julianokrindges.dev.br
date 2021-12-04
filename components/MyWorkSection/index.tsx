@@ -38,7 +38,6 @@ export default function MyWork(props: props): ReactElement {
                 layout="responsive"
                 width={400}
                 height={300}
-                loading="eager"
                 className="object-cover"
               />
 
@@ -47,8 +46,8 @@ export default function MyWork(props: props): ReactElement {
                 <div className={`${styles.info}`}>
                   <p className="text-base">{item.description}</p>
                   {item.tags.map((tag) => (
-                    <span key={tag} className="text-xs font-mono">
-                      {tag},
+                    <span key={tag} className="text-xs font-mono mr-2">
+                      {tag}
                     </span>
                   ))}
                 </div>
