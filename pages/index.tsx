@@ -57,7 +57,6 @@ export const getStaticProps = async () => {
     `{
         projects(stage: PUBLISHED, orderBy: id_DESC) {
           id
-          content
           cover {
             url(transformation: {image: {}})
           }
