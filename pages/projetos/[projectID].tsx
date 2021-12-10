@@ -7,19 +7,20 @@ const Projeto = (props: any) => {
   const { project } = props;
   return (
     <Layout title={project.name}>
-      <div>
-        <h1>{project.name}</h1>
-        <div className="h-44 w-60">
-          <Image
-            src={project.cover.url}
-            layout="responsive"
-            width="300"
-            height="300"
-            className="object-cover"
-          />
+      <div className="pt-20 h-screen">
+        <div className="container mx-auto">
+          <h1>{project.name}</h1>
+          <div className="h-44 w-60">
+            <Image
+              src={project.cover.url}
+              layout="responsive"
+              width="300"
+              height="300"
+              className="object-cover"
+            />
+          </div>
+          <p>{project.content}</p>
         </div>
-
-        <p>{project.content}</p>
       </div>
     </Layout>
   );
