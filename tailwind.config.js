@@ -1,14 +1,14 @@
 module.exports = {
-  purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
-  darkMode: false, // or 'media' or 'class'
+  content: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    colors: {
-      primary: "#0F123D",
-      secondary: "#64FFDA",
-      tint: "#64FFDA",
-      "light-gray": "#8892B0",
+    extend: {
+      colors: {
+        primary: "#0F123D",
+        secondary: "#64FFDA",
+        tint: "#64FFDA",
+        "light-gray": "#8892B0",
+      },
     },
-    extend: {},
     backgroundColor: (theme) => ({
       ...theme("colors"),
       primary: "#0F123D",
@@ -27,10 +27,5 @@ module.exports = {
       mono: ["Fira Code", "monospace", "Fira Sans"],
     },
   },
-  variants: {
-    extend: {
-      flexDirection: ["even", "odd"],
-    },
-  },
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
 };

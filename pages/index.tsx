@@ -1,15 +1,26 @@
+import { GraphQLClient } from "graphql-request";
+
 import About from "../components/AboutSection";
-import Projects from "../components/ProjectSection";
 import Layout from "../components/Layout";
+import ContactSection from "components/ContactSection";
+import Button from "../components/Button";
 
-import { postObj } from "../ts/app_interfaces";
-import { API_URL } from "../config";
+import MyWork from "components/MyWorkSection";
 
-interface postArray {
-  items: Array<postObj>;
+interface props {
+  projects: Array<projectItem>;
 }
 
-const Home = (postsIndex: postArray) => {
+interface projectItem {
+  id: string;
+  name: string;
+  description: string;
+  cover: { url: string };
+  tags: [string];
+  content: string;
+}
+
+const Home = (props: props) => {
   return (
     <Layout title="Home">
       <div className={"h-screen mesh-gradient"}>
@@ -17,31 +28,47 @@ const Home = (postsIndex: postArray) => {
           className={"container mx-auto h-full pt-16 grid grid-cols-4 grid-rows-4 grid-flow-col"}
         >
           <div className={"row-start-2 col-start-2 col-span-3"}>
-            <h3 className={"font-mono text-base lg:text-xl text-tint"}>Olá, eu sou</h3>
-            <h2 className={"text-5xl lg:text-6xl font-bold text-gray-300 py-3"}>
-              Juliano Krindges
-            </h2>
-            <p className={"text-2xl lg:text-3xl"}>Desenvolvedor Web e Designer de Interfaces</p>
+            <header>
+              <p className={"font-mono text-base lg:text-xl text-tint"}>Olá, eu sou</p>
+              <h2 className={"text-5xl lg:text-6xl font-bold text-gray-300 py-3"}>
+                Juliano Krindges
+              </h2>
+              <p className={"text-2xl lg:text-3xl"}>Desenvolvedor Web e Designer de Interfaces</p>
+            </header>
           </div>
           <div className={"row-start-3 col-start-2"}>
-            <button className={"border-2 w-52 h-12 rounded border-tint"}>
-              <span className={"text-tint font-mono"}>Vamos Conversar</span>
-            </button>
+            <Button to="/" label="home" />
           </div>
         </section>
       </div>
       <About />
-      <Projects projects={postsIndex} />
+      <MyWork projects={props} />
+      <ContactSection />
     </Layout>
   );
 };
 
 export const getStaticProps = async () => {
-  const res = await fetch(`${API_URL}/collection/y8ui3sf8t6oa?content`);
-  const postsIndex: postArray = await res.json();
+  const graphcms = new GraphQLClient(
+    "https://api-us-east-1.graphcms.com/v2/ckwdw0n920kuq01z36qpm2nf2/master"
+  );
 
+  const { projects } = await graphcms.request(
+    `{
+        projects(stage: PUBLISHED, orderBy: id_DESC) {
+          id
+          cover {
+            url(transformation: {image: {}})
+          }
+          name
+          tags
+          description
+        }
+      }
+`
+  );
   return {
-    props: postsIndex,
+    props: { projects },
   };
 };
 

@@ -4,12 +4,12 @@ interface Props {}
 
 export default function About({}: Props): ReactElement {
   return (
-    <section className={"container mx-auto h-screen py-24 px-40"}>
+    <section className={"container mx-auto h-auto lg:h-screen py-24 lg:px-40 px-8"} id="about">
       <h2 className={"font-mono text-2xl mb-10 font-bold"}>
         <span className={"text-tint"}>\</span> Sobre
       </h2>
-      <div className={"grid grid-cols-2 w-full gap-8"}>
-        <div className={" text-xl text-gray"}>
+      <div className={"md:flex w-full gap-8"}>
+        <article className=" text-xl text-gray">
           <p>
             Olá, me chamo Juliano, amo criar novas coisas atraves de código, seja para internet ou
             qualquer outra meio. Meu interesse em programação começou em 2015 quando havia terminado
@@ -21,7 +21,7 @@ export default function About({}: Props): ReactElement {
             tenho atuado como Freelancer, focando em aplicações Web Front-End e Back-End para uma
             variedade de clientes.
           </p>
-          <p>Algumas tecnologia que tenho trabalhado recentemente:</p>
+          <h3>Algumas tecnologia que tenho trabalhado recentemente:</h3>
           <ul className={"grid grid-cols-2 grid-rows-3 gap-2 font-mono text-white text-sm pl-3"}>
             <li>JavaScript ( ES6+ )</li>
             <li>TypeScript</li>
@@ -29,9 +29,9 @@ export default function About({}: Props): ReactElement {
             <li>WordPress</li>
             <li>React & React Native</li>
           </ul>
-        </div>
-        <div>
-          <div className={"w-64 h-72 rounded-lg bg-tint"}></div>
+        </article>
+        <div className="mt-10 md:mt-0">
+          <div className={"w-64 h-72 rounded-lg bg-tint "}></div>
         </div>
       </div>
     </section>

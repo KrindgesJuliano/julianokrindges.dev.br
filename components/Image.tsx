@@ -10,11 +10,12 @@ const cloudflareImageLoader = ({ src, width, quality }: Loader) => {
   if (!quality) {
     quality = 75;
   }
-  return `https://imagesnext.pixel13image.workers.dev?width=${width}&quality=${quality}&image=${src}`;
+  // return `https://imagesnext.pixel13image.workers.dev/?width=${width}&quality=${quality}&image=${src}`;
+
+  return src;
 };
 
-export default function Img({ src, alt, width, height, layout }: ImageProps) {
-  const props = { src, alt, width, height, layout };
+export default function Img(props: ImageProps) {
   if (process.env.NODE_ENV === "development") {
     return <Image unoptimized={true} {...props} />;
   } else {

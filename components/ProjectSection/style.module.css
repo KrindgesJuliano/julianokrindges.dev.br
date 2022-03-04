@@ -1,0 +1,30 @@
+.project_card {
+  display: flex;
+}
+
+.project_card + .project_card {
+  border-top: 1px solid;
+  border-color: #64ffda;
+  padding-top: 5rem;
+}
+
+.project_card:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.project_text {
+  text-align: right;
+}
+
+.project_card:nth-child(even) > .project_text {
+  text-align: left;
+}
+
+.project_tag {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.project_card:nth-child(even) > .project_text > div {
+  justify-content: flex-start;
+}

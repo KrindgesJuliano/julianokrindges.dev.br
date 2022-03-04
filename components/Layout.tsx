@@ -11,16 +11,11 @@ interface Props {
 
 const Layout = ({ title, keywords, description, children }: Props) => {
   return (
-    <div className={"relative"}>
-      <SEO
-        title={title}
-        description={description}
-        keywords={keywords}
-        shouldExcludeTitleSuffix
-      ></SEO>
+    <React.Fragment>
+      <SEO title={title} description={description} keywords={keywords} shouldExcludeTitleSuffix />
       <Header />
-      <div className={"mx-auto"}>{children}</div>
-    </div>
+      <main>{children}</main>
+    </React.Fragment>
   );
 };
 
